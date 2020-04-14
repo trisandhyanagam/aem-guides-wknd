@@ -29,4 +29,3 @@ curl -u "admin":"admin" --fail -F file=@"aem-guides-wknd.ui.apps.zip" -F force=t
     jdk 'java 8'
   }
     
-}

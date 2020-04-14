@@ -1,9 +1,5 @@
 pipeline {
   agent any
-   tools { 
-        maven 'maven 3.6' 
-        jdk 'JAVA_HOME' 
-    }
   stages {
     stage('Build/NexusDeploy') {
       steps {

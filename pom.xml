@@ -32,7 +32,7 @@
 
     <properties>
         <aem.host>localhost</aem.host>
-        <aem.port>4502</aem.port>
+        <aem.port>4508</aem.port>
         <aem.publish.host>localhost</aem.publish.host>
         <aem.publish.port>4503</aem.publish.port>
         <sling.user>admin</sling.user>
@@ -620,5 +620,38 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+      <!-- ====================================================== -->
+        <!-- N E X U S   R E P O S I T O R Y   P R O F I L E       -->
+        <!-- ====================================================== -->
+    <repositories>
+        <repository>
+            <id>nexus</id>
+            <name>Nexus Releases</name>
+            <url>http://localhost:8081/repository/maven-public/</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>nexus</id>
+            <name>Nexus Releases</name>
+            <url>http://localhost:8081/repository/maven-public/</url>
+            <layout>default</layout>
+        </pluginRepository>
+    </pluginRepositories>
+    <distributionManagement>
+        <repository>            
+            <uniqueVersion>false</uniqueVersion>
+            <id>nexus</id>
+            <name>Nexus Releases</name>
+            <url>http://localhost:8081/repository/maven-releases/</url>           
+        </repository>
+       <snapshotRepository>
+            <uniqueVersion>true</uniqueVersion>
+            <id>nexus</id>
+            <name>Nexus Snapshots</name>    
+            <url>http://localhost:8081/repository/maven-snapshots/</url>
+       </snapshotRepository>
+    </distributionManagement>
 
 </project>

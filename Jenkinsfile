@@ -5,6 +5,7 @@ pipeline {
       steps {
         script {
         	echo 'This is jenkins job'
+        	sh 'mvn deploy'
 			sh '''mvn deploy'''
         }
       }

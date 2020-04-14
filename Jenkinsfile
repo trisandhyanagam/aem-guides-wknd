@@ -1,7 +1,7 @@
 pipeline {
   agent any
   stages {
-    stage('Buid/NexusDeploy') {
+    stage('Build/NexusDeploy') {
       steps {
         script {
 			sh '''mvn deploy'''
@@ -24,8 +24,3 @@ curl -u "admin":"admin" --fail -F file=@"aem-guides-wknd.ui.apps.zip" -F force=t
       }
     }
   }
-  tools {
-    maven 'Default'
-    jdk 'java 8'
-  }
-    

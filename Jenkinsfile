@@ -1,9 +1,15 @@
 pipeline {
   agent any
+   tools { 
+        maven 'Maven 3.6.3' 
+        jdk 'jdk8' 
+    }
   stages {
     stage('Build/NexusDeploy') {
       steps {
         script {
+        	echo 'This is jenkins job'
+        	mk dir
 			sh '''mvn deploy'''
         }
       }

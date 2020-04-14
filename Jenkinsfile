@@ -4,7 +4,6 @@ pipeline {
     stage('Build/NexusDeploy') {
       steps {
         script {
-        	mvn deploy
         	echo 'This is jenkins job'
 			sh '''mvn deploy'''
         }

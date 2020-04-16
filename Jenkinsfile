@@ -1,13 +1,10 @@
 pipeline {
   agent any
   stages {
-    stage('Build/NexusDeploy') {
+    stage('Buid/NexusDeploy') {
       steps {
         script {
-        	echo 'This is jenkins job'
-        	sh '''ls'''
-        	sh 'mvn deploy'
-			sh '''mvn deploy'''
+			bat 'mvn -s D:/settings.xml clean deploy'
         }
       }
     }
@@ -15,12 +12,12 @@ pipeline {
       steps {
         input 'Deploy to instance ?'
         script {
-            sh '''
-            rm -rf aem-guides-wknd.ui.apps*
+		 bat '''           
             wget --content-disposition "http://localhost:8081/service/rest/v1/search/assets/download?sort=version&repository=maven-snapshots&group=com.adobe.aem.guides&name=aem-guides-wknd.ui.apps&maven.extension=zip"
-      	cp aem-guides-wknd.ui.apps* aem-guides-wknd.ui.apps.zip
-curl -u "admin":"admin" --fail -F file=@"aem-guides-wknd.ui.apps.zip" -F force=true -F install=true 'http://localhost:4508/crx/packmgr/service.jsp'
+      	    copy aem-guides-wknd.ui.apps* aem-guides-wknd.ui.apps.zip
+           curl -u "admin":"admin" --fail -F file=@"aem-guides-wknd.ui.apps.zip" -F force=true -F install=true 'http://localhost:4508/crx/packmgr/service.jsp'
 '''
+          
           }
         }
 

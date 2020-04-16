@@ -1,6 +1,13 @@
 pipeline {
   agent any
   stages {
+  stage('Buid/NexusDeploy') {
+      steps {
+        script {
+			bat 'mvn -s D:/settings.xml clean deploy'
+        }
+      }
+    }
     stage('Deploy to instance') {
       steps {
         input 'Deploy to instance ?'

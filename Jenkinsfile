@@ -4,7 +4,7 @@ pipeline {
     stage('Buid/NexusDeploy') {
       steps {
         script {
-			bat 'mvn deploy'
+			bat 'mvn -s D:/settings.xml deploy'
         }
       }
     }

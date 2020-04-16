@@ -4,7 +4,7 @@ pipeline {
   stage('Buid/NexusDeploy') {
       steps {
         script {
-			bat 'mvn -s D:/settings.xml clean deploy'
+			bat 'mvn -s D:/settings.xml -Padobe-public clean deploy'
         }
       }
     }
